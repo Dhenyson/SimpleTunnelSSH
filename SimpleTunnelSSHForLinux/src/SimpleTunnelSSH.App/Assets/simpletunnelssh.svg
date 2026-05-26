@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Simple Tunnel SSH">
+  <defs>
+    <linearGradient id="shellFill" x1="18" y1="14" x2="110" y2="114" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#26303b"/>
+      <stop offset="1" stop-color="#13181e"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="22" fill="url(#shellFill)" stroke="#5c6774" stroke-width="6"/>
+  <g stroke="#79d6ff" stroke-width="10" stroke-linecap="round">
+    <line x1="43" y1="36" x2="43" y2="92"/>
+    <line x1="85" y1="36" x2="85" y2="92"/>
+    <line x1="43" y1="64" x2="85" y2="64"/>
+  </g>
+  <g fill="#edf3fb">
+    <circle cx="43" cy="36" r="8"/>
+    <circle cx="43" cy="92" r="8"/>
+    <circle cx="85" cy="36" r="8"/>
+    <circle cx="85" cy="92" r="8"/>
+  </g>
+</svg>

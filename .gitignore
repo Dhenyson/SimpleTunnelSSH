@@ -1,0 +1,73 @@
+# Build outputs
+artifacts/
+bin/
+obj/
+Debug/
+Release/
+build/
+dist/
+out/
+publish/
+x64/
+x86/
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.trx
+
+# CMake / native build caches
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+CTestTestfile.cmake
+cmake_install.cmake
+compile_commands.json
+install_manifest.txt
+Testing/
+.qmake.stash
+
+# Visual Studio / VS Code / Rider user files
+.vs/
+.vscode/
+.idea/
+*.iml
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.userprefs
+*.sln.docstates
+
+# Logs, temp files, and caches
+*.log
+*.tmp
+*.temp
+*.pid
+*.cache
+.cache/
+
+# Local environment helpers
+dotnet-install.ps1
+
+# Local secrets and environment files
+.env
+.env.*
+*.local
+*.secret
+*.credentials
+*.token
+secrets.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.snk
+
+# Runtime user data
+config.json
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

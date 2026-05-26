@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FEF4CA18-7734-457B-9493-414A52F445A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTunnelSSH.Core", "src\SimpleTunnelSSH.Core\SimpleTunnelSSH.Core.csproj", "{FA5EFB9C-D9CB-4FA5-805A-1BA405FAAC00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTunnelSSH.App", "src\SimpleTunnelSSH.App\SimpleTunnelSSH.App.csproj", "{0CEB41B2-BAE9-459F-A19B-21415428C92E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B7213F27-98F9-49F1-AD0A-EEF0DE93031D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTunnelSSH.Core.Tests", "tests\SimpleTunnelSSH.Core.Tests\SimpleTunnelSSH.Core.Tests.csproj", "{E05719F4-7FC3-4DD0-B625-20384A99277B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA5EFB9C-D9CB-4FA5-805A-1BA405FAAC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA5EFB9C-D9CB-4FA5-805A-1BA405FAAC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA5EFB9C-D9CB-4FA5-805A-1BA405FAAC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA5EFB9C-D9CB-4FA5-805A-1BA405FAAC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CEB41B2-BAE9-459F-A19B-21415428C92E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEB41B2-BAE9-459F-A19B-21415428C92E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEB41B2-BAE9-459F-A19B-21415428C92E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEB41B2-BAE9-459F-A19B-21415428C92E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E05719F4-7FC3-4DD0-B625-20384A99277B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05719F4-7FC3-4DD0-B625-20384A99277B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05719F4-7FC3-4DD0-B625-20384A99277B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05719F4-7FC3-4DD0-B625-20384A99277B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FA5EFB9C-D9CB-4FA5-805A-1BA405FAAC00} = {FEF4CA18-7734-457B-9493-414A52F445A0}
+		{0CEB41B2-BAE9-459F-A19B-21415428C92E} = {FEF4CA18-7734-457B-9493-414A52F445A0}
+		{E05719F4-7FC3-4DD0-B625-20384A99277B} = {B7213F27-98F9-49F1-AD0A-EEF0DE93031D}
+	EndGlobalSection
+EndGlobal

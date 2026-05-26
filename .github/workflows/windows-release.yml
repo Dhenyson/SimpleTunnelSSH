@@ -1,0 +1,66 @@
+name: Build Windows Release Assets
+
+on:
+  workflow_dispatch:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows-assets:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install Inno Setup
+        shell: pwsh
+        run: choco install innosetup --no-progress --yes
+
+      - name: Restore solution
+        working-directory: SimpleTunnelSSHForWindows
+        shell: pwsh
+        run: dotnet restore .\SimpleTunnelSSH.sln
+
+      - name: Run tests
+        working-directory: SimpleTunnelSSHForWindows
+        shell: pwsh
+        run: dotnet test .\SimpleTunnelSSH.sln -c Release --no-restore
+
+      - name: Build Windows executable and installer
+        working-directory: SimpleTunnelSSHForWindows
+        shell: pwsh
+        run: .\scripts\Publish-Installer.ps1
+
+      - name: Prepare Windows release assets
+        working-directory: SimpleTunnelSSHForWindows
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path artifacts\release | Out-Null
+          Copy-Item artifacts\publish\win-x64\SimpleTunnelSSH.exe artifacts\release\SimpleTunnelSSH-Win-Executable.exe -Force
+          Copy-Item artifacts\installer\SimpleTunnelSSH-Installer.exe artifacts\release\SimpleTunnelSSH-Win-Installer.exe -Force
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: simpletunnelssh-windows-release-assets
+          path: |
+            SimpleTunnelSSHForWindows/artifacts/release/SimpleTunnelSSH-Win-Executable.exe
+            SimpleTunnelSSHForWindows/artifacts/release/SimpleTunnelSSH-Win-Installer.exe
+
+      - name: Attach Windows assets to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            SimpleTunnelSSHForWindows/artifacts/release/SimpleTunnelSSH-Win-Executable.exe
+            SimpleTunnelSSHForWindows/artifacts/release/SimpleTunnelSSH-Win-Installer.exe

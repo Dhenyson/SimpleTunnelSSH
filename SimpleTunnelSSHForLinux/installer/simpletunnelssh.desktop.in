@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Simple Tunnel SSH
+Comment=Lightweight SSH tunnel manager
+Exec=@STS_DESKTOP_EXEC@
+Icon=simpletunnelssh
+Terminal=false
+Categories=Network;Utility;
+StartupNotify=true

@@ -1,0 +1,45 @@
+name: Build Linux Release Assets
+
+on:
+  workflow_dispatch:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+
+jobs:
+  build-linux-deb:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        working-directory: SimpleTunnelSSHForLinux
+        run: ./scripts/Install-Build-Dependencies.sh
+
+      - name: Build DEB package
+        working-directory: SimpleTunnelSSHForLinux
+        run: ./scripts/Publish-Deb.sh
+
+      - name: Prepare Linux release asset
+        working-directory: SimpleTunnelSSHForLinux
+        run: |
+          mkdir -p artifacts/release
+          deb_path="$(find artifacts/installer -maxdepth 1 -type f -name '*.deb' | head -n 1)"
+          cp "$deb_path" artifacts/release/SimpleTunnelSSH-Linux-Installer.deb
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: simpletunnelssh-linux-release-assets
+          path: SimpleTunnelSSHForLinux/artifacts/release/SimpleTunnelSSH-Linux-Installer.deb
+
+      - name: Attach DEB to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: SimpleTunnelSSHForLinux/artifacts/release/SimpleTunnelSSH-Linux-Installer.deb
