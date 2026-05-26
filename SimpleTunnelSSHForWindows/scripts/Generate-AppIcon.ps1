@@ -4,7 +4,14 @@ $assetsDirectory = Join-Path $PSScriptRoot '..\src\SimpleTunnelSSH.App\Assets'
 New-Item -ItemType Directory -Path $assetsDirectory -Force | Out-Null
 
 if (-not ('SimpleTunnelSshIconWriter' -as [type])) {
-Add-Type -ReferencedAssemblies System.Drawing -TypeDefinition @"
+    $referencedAssemblies = @(
+        [System.Drawing.Bitmap].Assembly.Location,
+        [System.Drawing.RectangleF].Assembly.Location,
+        [System.Drawing.Drawing2D.GraphicsPath].Assembly.Location,
+        [System.Drawing.Imaging.ImageFormat].Assembly.Location
+    ) | Select-Object -Unique
+
+Add-Type -ReferencedAssemblies $referencedAssemblies -TypeDefinition @"
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
